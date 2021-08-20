@@ -1,19 +1,6 @@
 version: "3.8"
 
 services:
-  nginx:
-    container_name: nginx
-    build: ./nginx
-    image: app-nginx
-    restart: always
-    ports:
-      - 80:80
-    volumes:
-      # - ./my_local_app:/srv/app_server
-      - ./nginx_log:/var/log/nginx
-    depends_on:
-      - portainer
-
   portainer:
     image: portainer/portainer-ce:alpine
     container_name: portainer
@@ -25,5 +12,4 @@ services:
       - ./portainer_data:/data
 
 volumes:
-  nginx_log:
   portainer_data:
