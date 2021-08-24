@@ -27,7 +27,6 @@ services:
 
   testnode:
     build: ./testnode
-    image: testnode_image
     networks:
       - core_network
     environment:
