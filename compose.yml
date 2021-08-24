@@ -10,7 +10,7 @@ services:
       - core_network
     volumes:
       # - ./my_local_app:/srv/app_server
-      - home/amamov/server/nginx_log_volume:/var/log/nginx
+      - nginx_log_volume:/var/log/nginx
     depends_on:
       - portainer
       - testnode
@@ -20,7 +20,7 @@ services:
     restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - home/amamov/server/portainer_volume:/data
+      - portainer_volume:/data
 
   testapp:
     image: testapp_image
@@ -36,8 +36,7 @@ services:
   mongo:
     image: mongo
     volumes:
-      - home/amamov/server/mongodb/initMongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - home/amamov/server/mongodb/mongodb_volume:/data/db
+      - mongodb_volume:/data/db
     ports:
       - "27017-27019:27017-27019"
     networks:
