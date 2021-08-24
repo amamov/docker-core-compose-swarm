@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  nginx:
+    container_name: nginx_container
+    build: ./nginx
+    image: app_nginx_image
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      # - ./my_local_app:/srv/app_server
+      - ./nginx_log_volume:/var/log/nginx
+    depends_on:
+      - portainer
+      - testnode
+
+  testnode:
+    container_name: testnode_container
+    build: ./testnode
+    image: testnode_image
+    environment:
+      MONGO_URL: "mongodb://admin:1205@mongo:27017"
+      NODE_ENV: "prod"
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: mongodb_container
+    image: mongo
+    volumes:
+      - ./initMongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongodb_volume:/data/db
+    ports:
+      - "27017-27019:27017-27019"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: "1205"
+    restart: always
+
+volumes:
+  nginx_log_volume:
+  mongodb_volume:
