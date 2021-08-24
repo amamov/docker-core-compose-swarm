@@ -15,6 +15,11 @@
 ## deploy services in stack
 
 - `docker stack deploy -c compose.yml core_stack`
+- `docker stack ls`
+- `docker service ls`
+- `docker service ps core_stack_nginx`
+- `docker service logs <서비스에_해당하는_컨테이너_id>`
+- `docker stack rm core_stack`
 
 ## dependency
 
@@ -23,11 +28,3 @@
 - docker-swarm
 - [portainer](https://documentation.portainer.io/)
 - [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
-
-docker service ls
-
-docker service ps core_stack_nginx
-
-docker stack rm core_stack
-
-docker service logs <서비스에*해당하는*컨테이너\_id>
