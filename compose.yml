@@ -10,16 +10,15 @@ services:
     ports:
       - 80:80
     networks:
-      - network
+      - core_network
     volumes:
       # - ./my_local_app:/srv/app_server
-      - /home/amamov/server/nginx_log_volume:/var/log/nginx
+      - ./nginx_log_volume:/var/log/nginx
     depends_on:
       - portainer
       - testnode
 
   portainer:
-    container_name: portainer_container
     image: portainer/portainer-ce:alpine
     restart: always
     ports:
@@ -32,7 +31,7 @@ services:
     build: ./testnode
     image: testnode_image
     networks:
-      - network
+      - core_network
     environment:
       MONGO_URL: "mongodb://admin:1205@mongo:27017"
       NODE_ENV: "prod"
@@ -42,12 +41,12 @@ services:
   mongo:
     image: mongo
     volumes:
-      - /home/amamov/server/initMongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - /home/amamov/server/mongodb_volume:/data/db
+      - ./mongodb/initMongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongodb/mongodb_volume:/data/db
     ports:
       - "27017-27019:27017-27019"
     networks:
-      - network
+      - core_network
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: "1205"
@@ -59,6 +58,6 @@ volumes:
   portainer_volume:
 
 networks:
-  network:
+  core_network:
 
   
