@@ -18,6 +18,8 @@ services:
   portainer:
     image: portainer/portainer-ce:alpine
     restart: always
+    networks:
+      - core_network
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_volume:/data

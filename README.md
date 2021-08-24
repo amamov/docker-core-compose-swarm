@@ -2,7 +2,7 @@
 
 > Building infrastructure using docker portainer
 
-## build require image
+## build required image
 
 - `docker build -t testapp_image ./testapp`
 
@@ -23,3 +23,9 @@
 - docker-swarm
 - [portainer](https://documentation.portainer.io/)
 - [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
+
+docker service ls
+
+docker service ps core_stack_nginx
+
+docker stack rm core_stack
