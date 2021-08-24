@@ -8,9 +8,11 @@ services:
     restart: always
     ports:
       - 80:80
+    networks:
+      - network
     volumes:
       # - ./my_local_app:/srv/app_server
-      - ./nginx_log_volume:/var/log/nginx
+      - /home/amamov/server/nginx_log_volume:/var/log/nginx
     depends_on:
       - portainer
       - testnode
@@ -29,8 +31,8 @@ services:
     container_name: mongodb_container
     image: mongo
     volumes:
-      - ./initMongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - ./mongodb_volume:/data/db
+      - /home/amamov/server/initMongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - /home/amamov/server/mongodb_volume:/data/db
     ports:
       - "27017-27019:27017-27019"
     environment:
