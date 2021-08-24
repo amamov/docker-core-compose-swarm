@@ -4,8 +4,7 @@ services:
 
 services:
   nginx:
-    build: ./nginx
-    image: app_nginx_image
+    image: nginx_image
     restart: always
     ports:
       - 80:80
@@ -25,8 +24,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./portainer_volume:/data
 
-  testnode:
-    build: ./testnode
+  testapp:
+    image: testapp_image
+    restart: always
     networks:
       - core_network
     environment:
