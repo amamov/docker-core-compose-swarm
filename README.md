@@ -2,13 +2,6 @@
 
 > Building infrastructure using docker portainer
 
-## dependency
-
-- [docker](https://docs.docker.com/engine/reference/run/)
-- [docker-compose](https://docs.docker.com/compose/reference/)
-- [portainer](https://documentation.portainer.io/)
-- [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
-
 ## build require image
 
 - `docker build -t testapp_image ./testapp`
@@ -21,4 +14,12 @@
 
 ## deploy services in stack
 
-- `docker stack -c compose.yml core_stack`
+- `docker stack deploy -c compose.yml core_stack`
+
+## dependency
+
+- [docker](https://docs.docker.com/engine/reference/commandline/docker/)
+- [docker-compose](https://docs.docker.com/compose/reference/)
+- docker-swarm
+- [portainer](https://documentation.portainer.io/)
+- [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
