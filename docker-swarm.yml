@@ -2,7 +2,6 @@ version: "3.8"
 
 services:
   nginx:
-    container_name: nginx_container
     build: ./nginx
     image: app_nginx_image
     restart: always
@@ -18,9 +17,10 @@ services:
       - testnode
 
   testnode:
-    container_name: testnode_container
     build: ./testnode
     image: testnode_image
+    networks:
+      - network
     environment:
       MONGO_URL: "mongodb://admin:1205@mongo:27017"
       NODE_ENV: "prod"
@@ -28,13 +28,14 @@ services:
       - mongo
 
   mongo:
-    container_name: mongodb_container
     image: mongo
     volumes:
       - /home/amamov/server/initMongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - /home/amamov/server/mongodb_volume:/data/db
     ports:
       - "27017-27019:27017-27019"
+    networks:
+      - network
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: "1205"
@@ -43,3 +44,6 @@ services:
 volumes:
   nginx_log_volume:
   mongodb_volume:
+
+networks:
+  network:
