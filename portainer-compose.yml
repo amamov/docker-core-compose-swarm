@@ -5,7 +5,8 @@ services:
     container_name: portainer_container
     image: portainer/portainer-ce:alpine
     restart: always
-    ports: 9000:9000
+    ports:
+      - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./portainer_volume:/data
