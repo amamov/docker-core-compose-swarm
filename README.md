@@ -1,6 +1,6 @@
-# docker-portainer-compose
+# this-is-server
 
-> Building infrastructure using docker portainer
+> Building infrastructure using docker stack, swarm, compose
 
 ## build required image
 
@@ -29,3 +29,5 @@ docker service ls
 docker service ps core_stack_nginx
 
 docker stack rm core_stack
+
+docker service logs <서비스에*해당하는*컨테이너\_id>
