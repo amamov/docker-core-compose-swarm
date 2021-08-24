@@ -13,7 +13,7 @@ services:
       - nginx_log_volume:/var/log/nginx
     depends_on:
       - portainer
-      - testnode
+      - testnapp
 
   portainer:
     image: portainer/portainer-ce:alpine
