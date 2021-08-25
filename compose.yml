@@ -16,7 +16,6 @@ services:
     depends_on:
       - portainer
       - testapp
-      - jupyter
 
   testapp:
     image: testapp_image
@@ -50,14 +49,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_volume:/data
-
-  jupyter:
-    image: jupyter/minimal-notebook
-    environment:
-      JUPYTER_ENABLE_LAB: "yes"
-    networks:
-      - core_network
-    restart: always
 
 volumes:
   nginx_log_volume:
