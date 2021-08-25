@@ -1,4 +1,5 @@
 # stack
+#! env hide
 
 version: "3.8"
 
@@ -46,7 +47,7 @@ services:
     networks:
       - core_network
     environment:
-      ME_CONFIG_MONGODB_ENABLE_ADMIN: true
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
       ME_CONFIG_MONGODB_URL: "mongodb://admin:1205@mongo:27017"
       ME_CONFIG_OPTIONS_EDITORTHEMEL: "material"
       ME_CONFIG_BASICAUTH_USERNAME: admin

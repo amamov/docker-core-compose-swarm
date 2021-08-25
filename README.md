@@ -4,9 +4,9 @@
 
 ## build required image
 
-- `docker build -t testapp_image ./testapp`
+- `docker build -t testapp_image:1.0.0 ./testapp`
 
-- `docker build -t nginx_image ./nginx`
+- `docker build -t nginx_image:1.0.0 ./nginx`
 
 ## init docker swarm
 
