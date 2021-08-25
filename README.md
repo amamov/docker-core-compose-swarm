@@ -1,4 +1,4 @@
-# this-is-server
+# this is server boilerplate with docker
 
 > Building infrastructure using docker stack, swarm, compose
 
@@ -29,8 +29,8 @@
 - [portainer](https://documentation.portainer.io/)
 - [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 - [jupyter-notebook](https://jupyter-docker-stacks.readthedocs.io/en/latest/)
+- [mongo-express](https://hub.docker.com/_/mongo-express)
 
 ## TODO
 
 - env file -> secret
-- mongoadmin -> mongo-express image

@@ -17,6 +17,7 @@ services:
     depends_on:
       - portainer
       - testapp
+      - mongoadmin
 
   testapp:
     image: testapp_image
