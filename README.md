@@ -29,3 +29,8 @@
 - [portainer](https://documentation.portainer.io/)
 - [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 - [jupyter-notebook](https://jupyter-docker-stacks.readthedocs.io/en/latest/)
+
+## TODO
+
+- env file -> secret
+- mongoadmin -> mongo-express image
