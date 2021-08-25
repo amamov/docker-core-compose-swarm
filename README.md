@@ -28,3 +28,4 @@
 - docker-swarm
 - [portainer](https://documentation.portainer.io/)
 - [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
+- jupyter
