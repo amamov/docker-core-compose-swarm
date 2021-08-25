@@ -2,6 +2,7 @@ FROM nginx:latest
 
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
+COPY ./nginx-jupyter.conf /etc/nginx/sites-available/
 COPY ./nginx-portainer.conf /etc/nginx/sites-available/
 COPY ./nginx-testapp.conf /etc/nginx/sites-available/
 
