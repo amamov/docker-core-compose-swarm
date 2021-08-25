@@ -41,6 +41,22 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: "1205"
     restart: always
 
+  mongoadmin:
+    image: mongo-express
+    networks:
+      - core_network
+    environment:
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: true
+      ME_CONFIG_MONGODB_URL: "mongodb://admin:1205@mongo:27017"
+      ME_CONFIG_OPTIONS_EDITORTHEMEL: "material"
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: me1205
+      ME_CONFIG_SITE_COOKIESECRET: cookiesecret
+      ME_CONFIG_SITE_SESSIONSECRET: sessionsecret
+    depends_on:
+      - mongo
+    restart: always
+
   portainer:
     image: portainer/portainer-ce:alpine
     restart: always
